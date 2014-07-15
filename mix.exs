@@ -5,15 +5,22 @@ defmodule JsApiService.Mixfile do
     [ app: :js_api_service,
       version: "0.1.0",
       elixir: "~> 0.14.2",
-      deps: deps ] ++ options(Mix.env)
+      deps: deps,
+      escript: escript ]
   end
 
   # Configuration for the OTP application
   def application do
     [
       mod: { JsApiService, [] },
-      applications: [:phoenix, :kernel, :stdlib, :exlager, :erlang_v8]
+      applications: [:phoenix, :kernel, :stdlib, :exlager, :erlang_v8],
+      env: options(Mix.env)
     ]
+  end
+
+  def escript do
+    [ main_module: JsApiService,
+      emu_args: "-sname js_api_service" ]
   end
 
   defp options(env) when env in [:dev, :test] do

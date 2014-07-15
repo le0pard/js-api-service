@@ -11,7 +11,7 @@ defmodule JsApiService.Supervisor do
     ]
 
     children = [
-      supervisor(JsApiService.ErlangV8.Supervisor, [v8_pool, :global])
+      supervisor(JsApiService.ErlangV8.Supervisor, [])
     ]
     # See http://elixir-lang.org/docs/stable/Supervisor.Behaviour.html
     # for other strategies and supported options
