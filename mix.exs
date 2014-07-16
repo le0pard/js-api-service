@@ -13,9 +13,7 @@ defmodule JsApiService.Mixfile do
   def application do
     [
       mod: { JsApiService, [] },
-      applications: [
-        :mix, :ex_conf, :poolboy, :erlang_v8, # this part for releases
-        :phoenix, :kernel, :stdlib, :exlager, :elixir_v8]
+      applications: [:phoenix, :kernel, :stdlib, :exlager, :elixir_v8]
     ]
   end
 
