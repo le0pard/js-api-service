@@ -31,7 +31,6 @@ defmodule JsApiService.Mixfile do
     [
       {:phoenix, "0.3.1"},
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
-      {:poolboy, github: "devinus/poolboy"},
       {:exlager, github: "khia/exlager"},
       {:elixir_v8, github: "le0pard/elixir_v8"},
       {:jsex, github: "talentdeficit/jsex"},
