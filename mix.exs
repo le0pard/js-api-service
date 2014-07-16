@@ -13,22 +13,13 @@ defmodule JsApiService.Mixfile do
   def application do
     [
       mod: { JsApiService, [] },
-      applications: [:phoenix, :kernel, :stdlib, :exlager, :erlang_v8],
-      env: options(Mix.env)
+      applications: [:phoenix, :kernel, :stdlib, :exlager, :erlang_v8]
     ]
   end
 
   def escript do
     [ main_module: JsApiService,
       emu_args: "-sname js_api_service" ]
-  end
-
-  defp options(env) when env in [:dev, :test] do
-    [exlager_level: :debug, exlager_truncation_size: 8096]
-  end
-
-  defp options(:prod) do
-    [exlager_level: :warning, exlager_truncation_size: 104857600 * 5]
   end
 
   # Returns the list of dependencies in the format:
@@ -38,12 +29,13 @@ defmodule JsApiService.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      { :phoenix, "0.3.1" },
-      { :cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true },
-      { :poolboy, github: "devinus/poolboy" },
-      { :exlager, github: "khia/exlager" },
-      { :erlang_v8, github: "strange/erlang-v8" },
-      { :jsex, github: "talentdeficit/jsex" }
+      {:phoenix, "0.3.1"},
+      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:poolboy, github: "devinus/poolboy"},
+      {:exlager, github: "khia/exlager"},
+      {:erlang_v8, github: "strange/erlang-v8"},
+      {:jsex, github: "talentdeficit/jsex"},
+      {:exrm, github: "bitwalker/exrm"}
     ]
   end
 end

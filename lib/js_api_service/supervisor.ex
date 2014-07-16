@@ -7,11 +7,11 @@ defmodule JsApiService.Supervisor do
 
   def init([]) do
     v8_pool = [
-      main: [{:size, 20}, {:max_overflow, 5}]
+      main: [{:size, 15}, {:max_overflow, 5}]
     ]
 
     children = [
-      supervisor(JsApiService.ErlangV8.Supervisor, [])
+      supervisor(JsApiService.ErlangV8.Supervisor, [v8_pool, :global])
     ]
     # See http://elixir-lang.org/docs/stable/Supervisor.Behaviour.html
     # for other strategies and supported options
