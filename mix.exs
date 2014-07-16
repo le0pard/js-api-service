@@ -30,7 +30,7 @@ defmodule JsApiService.Mixfile do
   defp deps do
     [
       {:phoenix, "0.3.1"},
-      {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
+      {:cowboy, "~> 0.10", github: "extend/cowboy", optional: true},
       {:exlager, github: "khia/exlager"},
       {:elixir_v8, github: "le0pard/elixir_v8"},
       {:jsex, github: "talentdeficit/jsex"},

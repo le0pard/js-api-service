@@ -8,8 +8,6 @@ defmodule JsApiService do
   end
 
   def main(_args) do
-    #:erlang.set_cookie(node(), String.to_atom ReflectorioWorker.Configuration.get_key("erlang")["cookies"])
-    #parse_args(args) |> process_args
     JsApiService.Router.start
     :timer.sleep(:infinity)
   end
