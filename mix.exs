@@ -13,7 +13,7 @@ defmodule JsApiService.Mixfile do
   def application do
     [
       mod: { JsApiService, [] },
-      applications: [:phoenix, :kernel, :stdlib, :exlager, :erlang_v8]
+      applications: [:phoenix, :kernel, :stdlib, :exlager, :elixir_v8]
     ]
   end
 
@@ -33,7 +33,7 @@ defmodule JsApiService.Mixfile do
       {:cowboy, "~> 0.10.0", github: "extend/cowboy", optional: true},
       {:poolboy, github: "devinus/poolboy"},
       {:exlager, github: "khia/exlager"},
-      {:erlang_v8, github: "strange/erlang-v8"},
+      {:elixir_v8, github: "le0pard/elixir_v8"},
       {:jsex, github: "talentdeficit/jsex"},
       {:exrm, github: "bitwalker/exrm"}
     ]

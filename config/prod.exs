@@ -2,6 +2,6 @@ use Mix.Config
 
 config :stout, level: :warning
 
-#config :lager,
-#  exlager_level: :warning,
-#  exlager_truncation_size: 104857600 * 5
+config :exlager,
+  level: :warning,
+  truncation_size: 104857600 * 5

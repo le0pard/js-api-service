@@ -2,7 +2,7 @@ defmodule JsApiService.Controllers.JsFunction do
   use Phoenix.Controller
 
   def run(conn, %{"function" => js_function, "data" => js_data}) when is_binary(js_function) and is_binary(js_data) do
-    { status, data } = JsApiService.ErlangV8.eval_function({:global, :main}, js_function, [js_data])
+    { status, data } = ElixirV8.eval_function({:global, :main}, js_function, [js_data])
     { :ok, json_response } = JSEX.encode([{ :status, status }, { :result, data }])
     json conn, json_response
   end

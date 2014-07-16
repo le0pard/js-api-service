@@ -1,6 +1,7 @@
 %{"conform": {:package, "0.8.2"},
   "cowboy": {:git, "git://github.com/extend/cowboy.git", "9980348a1cd74a41b3024f0b01d6fef301d8288b", []},
   "cowlib": {:git, "git://github.com/extend/cowlib.git", "e2ffefe828b918486e2cd76e44c54ae9b62c616e", [ref: "0.6.2"]},
+  "elixir_v8": {:git, "git://github.com/le0pard/elixir_v8.git", "4330ff6a4283daafb9bb092545f9011d788bcfda", []},
   "erlang_v8": {:git, "git://github.com/strange/erlang-v8.git", "baed135f580c871541959a1ec83f994e147c1ca6", []},
   "ex_conf": {:package, "0.1.3"},
   "exlager": {:git, "git://github.com/khia/exlager.git", "dca404300b04d2ad8f42e9ecc6f4c757e169071f", []},

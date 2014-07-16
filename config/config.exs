@@ -1,14 +1,19 @@
 use Mix.Config
 
-config :lager,
-  handlers: [
-    lager_console_backend: [:info, {:lager_default_formatter, [:time, ' [', :severity, '] ', :message, '\n']}]
-  ],
-  crash_log: :undefined,
-  error_logger_hwm: 150
-
 config :stout,
   truncation_size: 4096,
   level: :info
+
+config :exlager,
+  level: :debug,
+  truncation_size: 8096
+
+config :elixir_v8,
+  pools: [
+    main: [
+      {:size, 10},
+      {:max_overflow, 10}
+    ]
+  ]
 
 import_config "#{Mix.env}.exs"
