@@ -1,6 +1,7 @@
 /_build
 /deps
 /rel
+/js_api_service
 erl_crash.dump
 *.ez
 log/*
