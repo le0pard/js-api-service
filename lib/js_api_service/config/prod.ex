@@ -1,7 +1,7 @@
 defmodule JsApiService.Config.Prod do
   use JsApiService.Config
 
-  config :router, port: System.get_env("PORT"),
+  config :router, port: System.get_env("PORT") || 4000,
                   ssl: false,
                   # Full error reports are disabled
                   consider_all_requests_local: false
