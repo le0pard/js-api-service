@@ -1,4 +1,4 @@
-defmodule JsApiService.Controllers.JsFunction do
+defmodule JsApiService.JsFunctionController do
   use Phoenix.Controller
 
   def run(conn, %{"function" => js_function, "data" => js_data}) when is_binary(js_function) and is_binary(js_data) do

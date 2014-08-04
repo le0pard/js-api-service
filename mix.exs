@@ -4,7 +4,7 @@ defmodule JsApiService.Mixfile do
   def project do
     [ app: :js_api_service,
       version: "0.1.0",
-      elixir: "~> 0.14.2",
+      elixir: "~> 0.15",
       deps: deps,
       escript: escript ]
   end
@@ -31,8 +31,8 @@ defmodule JsApiService.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      {:phoenix, "0.3.1"},
-      {:cowboy, "~> 0.10", github: "extend/cowboy", optional: true},
+      {:phoenix, github: "phoenixframework/phoenix"},
+      {:cowboy, nil, [hex_app: :cowboy, optional: true]},
       {:exlager, github: "khia/exlager"},
       {:elixir_v8, github: "le0pard/elixir_v8"},
       {:jsex, github: "talentdeficit/jsex"},

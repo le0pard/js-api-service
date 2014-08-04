@@ -1,4 +1,4 @@
-defmodule JsApiService.Controllers.Pages do
+defmodule JsApiService.PageController do
   use Phoenix.Controller
 
   def index(conn, _params) do
