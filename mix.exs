@@ -31,12 +31,11 @@ defmodule JsApiService.Mixfile do
   # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
   defp deps do
     [
-      {:phoenix, github: "phoenixframework/phoenix"},
-      {:cowboy, nil, [hex_app: :cowboy, optional: true]},
+      {:phoenix, github: "phoenixframework/phoenix", override: true},
+      {:cowboy, "~> 1.0", override: true},
       {:exlager, github: "khia/exlager"},
       {:elixir_v8, github: "le0pard/elixir_v8"},
-      {:jsex, github: "talentdeficit/jsex"},
-      {:exrm, github: "bitwalker/exrm"}
+      {:jsex, github: "talentdeficit/jsex"}
     ]
   end
 end
