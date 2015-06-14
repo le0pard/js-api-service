@@ -3,7 +3,7 @@
   "cowlib": {:hex, :cowlib, "1.0.1"},
   "decimal": {:hex, :decimal, "1.1.0"},
   "ecto": {:hex, :ecto, "0.12.0-rc"},
-  "elixir_v8": {:git, "git://github.com/le0pard/elixir_v8.git", "2817de7179e247c279d0fb76a00e976c8d0bcdad", []},
+  "elixir_v8": {:git, "git://github.com/le0pard/elixir_v8.git", "c4a9c8207b653e4ab31f75fadf73bda5b47ffc2c", []},
   "erlang_v8": {:git, "git://github.com/strange/erlang-v8.git", "1ca13321d5746f3ec20f0c0bfd2bcc8293db71da", []},
   "exjsx": {:git, "git://github.com/talentdeficit/jsex.git", "d3572b488f10e3b83fadb1fc595fc87f84c35809", []},
   "exlager": {:git, "git://github.com/khia/exlager.git", "dca404300b04d2ad8f42e9ecc6f4c757e169071f", []},

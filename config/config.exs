@@ -20,14 +20,14 @@ config :logger, :console,
   metadata: [:request_id]
 
 
-js_lodash_lib = Mix.Project.app_path <> "/priv/lodash.min.js"
+js_underscore_lib = Mix.Project.app_path <> "/priv/underscore.js"
 
 config :elixir_v8,
   pools: [
     main: [
       {:size, 10},
       {:max_overflow, 10},
-      {:file, js_lodash_lib}
+      {:file, js_underscore_lib}
     ]
   ]
 
