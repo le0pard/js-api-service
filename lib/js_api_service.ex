@@ -1,38 +1,30 @@
 defmodule JsApiService do
   use Application
 
-  # See http://elixir-lang.org/docs/stable/Application.Behaviour.html
+  # See http://elixir-lang.org/docs/stable/elixir/Application.html
   # for more information on OTP Applications
   def start(_type, _args) do
-    JsApiService.Supervisor.start_link
+    import Supervisor.Spec, warn: false
+
+    children = [
+      # Start the endpoint when the application starts
+      supervisor(JsApiService.Endpoint, []),
+      # Start the Ecto repository
+      worker(JsApiService.Repo, []),
+      # Here you could define other workers and supervisors as children
+      # worker(JsApiService.Worker, [arg1, arg2, arg3]),
+    ]
+
+    # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html
+    # for other strategies and supported options
+    opts = [strategy: :one_for_one, name: JsApiService.Supervisor]
+    Supervisor.start_link(children, opts)
   end
 
-  def main(args) do
-    parse_args(args) |> process_args
-    JsApiService.Router.start
-    :timer.sleep(:infinity)
+  # Tell Phoenix to update the endpoint configuration
+  # whenever the application is updated.
+  def config_change(changed, _new, removed) do
+    JsApiService.Endpoint.config_change(changed, removed)
+    :ok
   end
-
-  defp parse_args(args) do
-   {options, _, _ } = OptionParser.parse(args)
-   options
- end
-
- defp process_args([head|tail]) do
-   process_args(head)
-   process_args(tail)
- end
-
- defp process_args({:pid, pid}) do
-   File.write!(pid, :os.getpid, [:write])
- end
-
- defp process_args([]) do
-   # empty
- end
-
- defp process_args(unecpected) when is_tuple(unecpected) do
-   IO.puts("Unexpected argument #{inspect(unecpected)}")
- end
-
 end

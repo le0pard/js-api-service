@@ -1,7 +1,9 @@
 defmodule JsApiService.PageController do
-  use Phoenix.Controller
+  use JsApiService.Web, :controller
+
+  plug :action
 
   def index(conn, _params) do
-    render conn, "index"
+    render conn, "index.html"
   end
 end

@@ -2,41 +2,42 @@ defmodule JsApiService.Mixfile do
   use Mix.Project
 
   def project do
-    [ app: :js_api_service,
-      version: "0.1.0",
-      elixir: "~> 1.0",
-      deps: deps,
-      escript: escript ]
+    [app: :js_api_service,
+     version: "0.0.1",
+     elixir: "~> 1.0",
+     elixirc_paths: elixirc_paths(Mix.env),
+     compilers: [:phoenix] ++ Mix.compilers,
+     build_embedded: Mix.env == :prod,
+     start_permanent: Mix.env == :prod,
+     deps: deps]
   end
 
   # Configuration for the OTP application
-  def application do
-    [
-      mod: { JsApiService, [] },
-      applications: [
-        :mix, :poolboy, :kernel, :stdlib, # for release
-        :phoenix, :exlager, :elixir_v8]
-    ]
-  end
-
-  def escript do
-    [ main_module: JsApiService,
-      emu_args: "-sname js_api_service" ]
-  end
-
-  # Returns the list of dependencies in the format:
-  # { :foobar, git: "https://github.com/elixir-lang/foobar.git", tag: "0.1" }
   #
-  # To specify particular versions, regardless of the tag, do:
-  # { :barbat, "~> 0.1", github: "elixir-lang/barbat" }
+  # Type `mix help compile.app` for more information
+  def application do
+    [mod: {JsApiService, []},
+     applications: [:phoenix, :phoenix_html, :cowboy, :logger,
+                    :phoenix_ecto, :postgrex, :elixir_v8]]
+  end
+
+  # Specifies which paths to compile per environment
+  defp elixirc_paths(:test), do: ["lib", "web", "test/support"]
+  defp elixirc_paths(_),     do: ["lib", "web"]
+
+  # Specifies your project dependencies
+  #
+  # Type `mix help deps` for examples and options
   defp deps do
-    [
-      {:phoenix, github: "phoenixframework/phoenix", override: true},
-      {:cowboy, "~> 1.0", override: true},
-      {:exlager, github: "khia/exlager"},
-      {:elixir_v8, github: "le0pard/elixir_v8"},
-      {:jsex, github: "talentdeficit/jsex"},
-      {:exrm, "~> 0.14"}
-    ]
+    [{:phoenix, "~> 0.13.1"},
+     {:phoenix_ecto, "~> 0.4"},
+     {:postgrex, ">= 0.0.0"},
+     {:phoenix_html, "~> 1.0"},
+     {:phoenix_live_reload, "~> 0.4", only: :dev},
+     {:cowboy, "~> 1.0"},
+     {:poolboy, github: "devinus/poolboy", override: true},
+     {:elixir_v8, github: "le0pard/elixir_v8"},
+     {:exjsx, github: "talentdeficit/jsex"},
+     {:exrm, "~> 0.17"}]
   end
 end

@@ -8,24 +8,25 @@
     <meta name="author" content="">
 
     <title>Hello Phoenix!</title>
-    <link rel="stylesheet" href="/static/css/app.css">
+    <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
   </head>
 
   <body>
-    <div class="container">
+    <div class="container" role="main">
       <div class="header">
         <ul class="nav nav-pills pull-right">
-          <li><a href="https://github.com/phoenixframework/phoenix">Get Started</a></li>
+          <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
         </ul>
         <span class="logo"></span>
       </div>
 
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+
       <%= @inner %>
 
-      <div class="footer">
-        <p><a href="http://phoenixframework.org">phoenixframework.org</a></p>
-      </div>
-
     </div> <!-- /container -->
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+    <script>require("web/static/js/app")</script>
   </body>
 </html>

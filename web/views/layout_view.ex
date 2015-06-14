@@ -1,4 +1,3 @@
 defmodule JsApiService.LayoutView do
-  use JsApiService.Views
-
+  use JsApiService.Web, :view
 end
