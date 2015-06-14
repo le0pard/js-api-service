@@ -18,7 +18,7 @@ defmodule JsApiService.Mixfile do
   def application do
     [mod: {JsApiService, []},
      applications: [:phoenix, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :postgrex, :elixir_v8]]
+                    :phoenix_ecto, :postgrex, :exjsx, :elixir_v8]]
   end
 
   # Specifies which paths to compile per environment
@@ -38,6 +38,7 @@ defmodule JsApiService.Mixfile do
      {:poolboy, github: "devinus/poolboy", override: true},
      {:elixir_v8, github: "le0pard/elixir_v8"},
      {:exjsx, github: "talentdeficit/jsex"},
-     {:exrm, "~> 0.17"}]
+     {:exrm, "~> 0.17"},
+     {:relx, github: "erlware/relx"}]
   end
 end
